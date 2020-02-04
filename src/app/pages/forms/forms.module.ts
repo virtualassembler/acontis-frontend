@@ -21,6 +21,7 @@ import { ButtonsComponent } from './buttons/buttons.component';
 import { FormsModule as ngFormsModule } from '@angular/forms';
 import { PsocomponentComponent } from './psocomponent/psocomponent.component';
 import { MatSliderModule } from '@angular/material/slider';
+import {MatTableModule} from '@angular/material/table';
 
 @NgModule({
   imports: [
@@ -38,6 +39,7 @@ import { MatSliderModule } from '@angular/material/slider';
     NbIconModule,
     ngFormsModule,
     MatSliderModule,
+    MatTableModule,
   ],
   declarations: [
     FormsComponent,

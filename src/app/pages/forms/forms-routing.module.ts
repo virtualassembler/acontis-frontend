@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { MatSliderModule } from '@angular/material/slider';
+import {MatTableModule} from '@angular/material/table';
 
 import { FormsComponent } from './forms.component';
 import { FormInputsComponent } from './form-inputs/form-inputs.component';
@@ -40,11 +41,13 @@ const routes: Routes = [
 @NgModule({
   imports: [
     RouterModule.forChild(routes),
-    MatSliderModule
+    MatSliderModule,
+    MatTableModule
   ],
   exports: [
     RouterModule,
-    MatSliderModule
+    MatSliderModule,
+    MatTableModule
   ],
 })
 export class FormsRoutingModule {
