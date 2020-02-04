@@ -1,25 +1,28 @@
 <div class="row">
-  <div class="col-md-12">
+  <div class="col-md-6">
+    <mat-slider min="1" max="100" step="1" value="1"></mat-slider>
+  </div>
+  <div class="col-md-6">
     <nb-card>
-      <nb-card-header>Inline form</nb-card-header>
+      <nb-card-header>Nueva empresa {{title}}</nb-card-header>
       <nb-card-body>
         <form>
           <div class="form-group">
             <label class="label col-sm-3 col-form-label">Nombre</label>
             <div class="col-sm-9">
-              <input type="text" nbInput fullWidth shape="rectangle" ngModel="name" placeholder="Rectangle border">
+              <input type="text" nbInput fullWidth shape="rectangle" placeholder="Rectangle border">
             </div>
           </div>
           <div class="form-group">
             <label class="label col-sm-3 col-form-label">NIT</label>
             <div class="col-sm-9">
-              <input type="text" nbInput fullWidth shape="rectangle" ngModel="nit" placeholder="Rectangle border">
+              <input type="text" nbInput fullWidth shape="rectangle" placeholder="Rectangle border">
             </div>
           </div>
           <div class="form-group">
             <label class="label col-sm-3 col-form-label">Telefono</label>
             <div class="col-sm-9">
-              <input type="text" nbInput fullWidth shape="rectangle" ngModel="telephone" placeholder="Rectangle border">
+              <input type="text" nbInput fullWidth shape="rectangle"  placeholder="Rectangle border">
             </div>
           </div>
           <button type="submit" nbButton status="primary">Submit</button>

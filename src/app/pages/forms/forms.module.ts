@@ -20,6 +20,7 @@ import { DatepickerComponent } from './datepicker/datepicker.component';
 import { ButtonsComponent } from './buttons/buttons.component';
 import { FormsModule as ngFormsModule } from '@angular/forms';
 import { PsocomponentComponent } from './psocomponent/psocomponent.component';
+import { MatSliderModule } from '@angular/material/slider';
 
 @NgModule({
   imports: [
@@ -36,6 +37,7 @@ import { PsocomponentComponent } from './psocomponent/psocomponent.component';
     NbSelectModule,
     NbIconModule,
     ngFormsModule,
+    MatSliderModule,
   ],
   declarations: [
     FormsComponent,
