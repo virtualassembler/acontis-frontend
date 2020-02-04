@@ -230,6 +230,11 @@ export const MENU_ITEMS: NbMenuItem[] = [
   },
   */
   {
+    title: 'Forms',
+    icon: 'grid-outline',
+    link: '/pages/forms/layouts',
+  },
+  {
     title: 'Auth',
     icon: 'lock-outline',
     children: [
