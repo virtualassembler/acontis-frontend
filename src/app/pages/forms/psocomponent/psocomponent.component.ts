@@ -2,7 +2,6 @@ import { Component, OnInit, ModuleWithProviders } from '@angular/core';
 import { Router, RouterModule, ActivatedRoute, Params, PreloadAllModules } from '@angular/router';
 import { UserService } from '../../../@core/mock/users.service';
 
-
 const ELEMENT_DATA: PeriodicElement[] = [
   {position: 1, name: 'HUDC', nit: 900824578, telephone: '6645711'},
   {position: 2, name: 'UNISINU', nit: 900824578, telephone: '6645700'},
@@ -30,6 +29,11 @@ export class PsocomponentComponent implements OnInit {
 
   public title: String
   public tableTitle: String
+  public name: String
+  public nit: String
+  public address: String
+  public telephone: String
+  public email: String
 
   constructor(
     private _route: ActivatedRoute,
