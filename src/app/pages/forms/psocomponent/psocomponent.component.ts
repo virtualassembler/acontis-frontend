@@ -4,16 +4,19 @@ import { UserService } from '../../../@core/mock/users.service';
 
 
 const ELEMENT_DATA: PeriodicElement[] = [
-  {position: 1, name: 'HUDC', weight: 900824578, symbol: '6645786'},
-  {position: 1, name: 'UNISINU', weight: 900824578, symbol: '6645786'},
-  {position: 1, name: 'COMFENALCO', weight: 900824578, symbol: '6645786'},
+  {position: 1, name: 'HUDC', nit: 900824578, telephone: '6645711'},
+  {position: 2, name: 'UNISINU', nit: 900824578, telephone: '6645700'},
+  {position: 3, name: 'COMFENALCO', nit: 900824578, telephone: '6645786'},
+  {position: 4, name: 'ARGOS', nit: 900824440, telephone: '6645725'},
+  {position: 5, name: 'HOCOL', nit: 900824512, telephone: '6645799'},
+  {position: 6, name: 'MEXICHEN', nit: 900635542, telephone: '6439810'},
 ];
 
 export interface PeriodicElement {
   name: string;
   position: number;
-  weight: number;
-  symbol: string;
+  nit: number;
+  telephone: string;
 }
 
 @Component({
@@ -26,16 +29,18 @@ export interface PeriodicElement {
 export class PsocomponentComponent implements OnInit {
 
   public title: String
+  public tableTitle: String
 
   constructor(
     private _route: ActivatedRoute,
     private _router: ActivatedRoute,
     private _user_service: UserService
     ) {
-      this.title = "TABLA EMPRESAS"
+      this.title = "Nueva empresa"
+      this.tableTitle = "Empresas"
     }
 
-  displayedColumns: string[] = ['position', 'name', 'weight', 'symbol'];
+  displayedColumns: string[] = ['position', 'name', 'nit', 'telephone'];
   dataSource = ELEMENT_DATA;
 
   ngOnInit() {
