@@ -22,6 +22,7 @@ import { FormsModule as ngFormsModule } from '@angular/forms';
 import { PsocomponentComponent } from './psocomponent/psocomponent.component';
 import { MatSliderModule } from '@angular/material/slider';
 import {MatTableModule} from '@angular/material/table';
+import { ContadoresComponent } from './contadores/contadores.component';
 
 @NgModule({
   imports: [
@@ -48,6 +49,7 @@ import {MatTableModule} from '@angular/material/table';
     FormLayoutsComponent,
     DatepickerComponent,
     PsocomponentComponent,
+    ContadoresComponent,
   ],
 })
 export class FormsModule { }

@@ -235,6 +235,11 @@ export const MENU_ITEMS: NbMenuItem[] = [
     link: '/pages/forms/layouts',
   },
   {
+    title: 'contadores',
+    icon: 'grid-outline',
+    link: '/pages/forms/contadores',
+  },
+  {
     title: 'Autenticación',
     icon: 'lock-outline',
     children: [
