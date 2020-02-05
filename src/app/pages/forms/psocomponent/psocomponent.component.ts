@@ -37,7 +37,7 @@ export class PsocomponentComponent implements OnInit {
   public tableTitle: string
   public name: string
   public nit: string
-  public adress: string
+  public address: string
   public telephone: string
   public email: string
 
@@ -48,6 +48,11 @@ export class PsocomponentComponent implements OnInit {
     ) {
       this.title = "Nueva empresa"
       this.tableTitle = "Empresas"
+      this.name = ""
+      this.nit = ""
+      this.address = ""
+      this.telephone = ""
+      this.email = ""
     }
 
   displayedColumns: string[] = ['position', 'name', 'nit', 'telephone'];
@@ -55,7 +60,7 @@ export class PsocomponentComponent implements OnInit {
   @ViewChild(MatTable,null) table: MatTable<any>;
 
   updateDataSource(){
-    ELEMENT_DATA.push({position: 8, name: this.title, nit: '8002372347', address: "aVENIDA ...",  telephone: "6648586", email: "EMAIL@EMAIL.FOO"});
+    ELEMENT_DATA.push({position: 8, name: this.name, nit: this.nit, address: this.address,  telephone: this.address, email: this.email});
     console.log("ELEMENT_DATA")
     console.log(ELEMENT_DATA)
     console.log("datasource")
