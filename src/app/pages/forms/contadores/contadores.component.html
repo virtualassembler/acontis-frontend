@@ -1,3 +1,73 @@
-<p>
-  contadores works!
-</p>
+
+<div class="row">
+  <div class="col-md-8"> 
+    <div class="mat-elevation-z8">
+      <nb-card>
+        <nb-card-header>{{tableTitle}}</nb-card-header>
+        <nb-card-body>
+          <table mat-table [dataSource]="dataSource">
+            <ng-container matColumnDef="position">
+              <th mat-header-cell *matHeaderCellDef> ID. </th>
+              <td mat-cell *matCellDef="let element"> {{element.position}} </td>
+            </ng-container>
+            <ng-container matColumnDef="name">
+              <th mat-header-cell *matHeaderCellDef> Nombre </th>
+              <td mat-cell *matCellDef="let element"> {{element.name}} </td>
+            </ng-container>
+            <ng-container matColumnDef="nit">
+              <th mat-header-cell *matHeaderCellDef> Identificación </th>
+              <td mat-cell *matCellDef="let element"> {{element.nit}} </td>
+            </ng-container>
+            <ng-container matColumnDef="telephone">
+              <th mat-header-cell *matHeaderCellDef> Teléfono </th>
+              <td mat-cell *matCellDef="let element"> {{element.telephone}} </td>
+            </ng-container>
+            <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+            <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+          </table>
+        </nb-card-body>
+      </nb-card>
+    </div>
+  </div>
+  <div class="col-md-4">
+    <nb-card>
+      <nb-card-header>{{title}}</nb-card-header>
+      <nb-card-body>
+        <form>
+          <div class="form-group">
+            <!-- label class="label col-sm-3 col-form-label">Nombre</label -->
+            <div class="col-sm-12">
+              <input type="text" [(ngModel)]="name" name="name" nbInput fullWidth shape="rectangle" placeholder="Nombre">
+            </div>
+          </div>
+          <div class="form-group">
+            <div class="col-sm-12">
+              <input type="text" [(ngModel)]="nit" name="nit" nbInput fullWidth shape="rectangle" placeholder="Nit">
+            </div>
+          </div>
+          <div class="form-group">
+            <div class="col-sm-12">
+              <input type="text" [(ngModel)]="address" name="address" nbInput fullWidth shape="rectangle"  placeholder="Dirección">
+            </div>
+          </div>
+          <div class="form-group">
+            <div class="col-sm-12">
+              <input type="text" [(ngModel)]="telephone" name="telephone" nbInput fullWidth shape="rectangle"  placeholder="Teléfono">
+            </div>
+          </div>
+          <div class="form-group">
+            <div class="col-sm-12">
+              <input type="text" [(ngModel)]="email" name="email" nbInput fullWidth shape="rectangle"  placeholder="Corre eléctronico">
+            </div>
+          </div>
+          <div class="form-group" style="text-align: right;">
+              <!--
+                <button type="submit" nbButton status="primary">Submit</button>
+              -->  
+              <button (click)="updateDataSource()" nbButton status="primary">Submit</button>
+          </div>
+        </form>
+      </nb-card-body>
+    </nb-card>
+  </div>
+</div>
