@@ -1,21 +1,24 @@
 import { Component, OnInit, ModuleWithProviders } from '@angular/core';
 import { Router, RouterModule, ActivatedRoute, Params, PreloadAllModules } from '@angular/router';
 import { UserService } from '../../../@core/mock/users.service';
+import { stringify } from 'querystring';
 
-const ELEMENT_DATA: PeriodicElement[] = [
-  {position: 1, name: 'HUDC', nit: 900824578, telephone: '6645711'},
-  {position: 2, name: 'UNISINU', nit: 900824578, telephone: '6645700'},
-  {position: 3, name: 'COMFENALCO', nit: 900824578, telephone: '6645786'},
-  {position: 4, name: 'ARGOS', nit: 900824440, telephone: '6645725'},
-  {position: 5, name: 'HOCOL', nit: 900824512, telephone: '6645799'},
-  {position: 6, name: 'MEXICHEN', nit: 900635542, telephone: '6439810'},
+let ELEMENT_DATA: PeriodicElement[] = [
+  {position: 1, name: 'HUDC', nit: '900824578', address: 'cll 22 # 25-65', telephone: '6645711', email: 'info@gmail.com'},
+  {position: 2, name: 'UNISINU', nit: '900824578', address: 'cll 22 # 25-65', telephone: '6645700', email: 'info@gmail.com'},
+  {position: 3, name: 'COMFENALCO', nit: '900824578', address: 'cll 22 # 25-65', telephone: '6645786', email: 'info@gmail.com'},
+  {position: 4, name: 'ARGOS', nit: '900824440', address: 'cll 22 # 25-65', telephone: '6645725', email: 'info@gmail.com'},
+  {position: 5, name: 'HOCOL', nit: '900824512', address: 'cll 22 # 25-65', telephone: '6645799', email: 'info@gmail.com'},
+  {position: 6, name: 'MEXICHEN', nit: '900635542', address: 'cll 22 # 25-65', telephone: '6439810', email: 'info@gmail.com'},
 ];
 
 export interface PeriodicElement {
-  name: string;
   position: number;
-  nit: number;
-  telephone: string;
+  name: string;
+  nit: string;
+  address: string;
+  telephone: string;  
+  email: string;
 }
 
 @Component({
@@ -27,13 +30,13 @@ export interface PeriodicElement {
 
 export class PsocomponentComponent implements OnInit {
 
-  public title: String
-  public tableTitle: String
-  public name: String
-  public nit: String
-  public address: String
-  public telephone: String
-  public email: String
+  public title: string
+  public tableTitle: string
+  public name: string
+  public nit: string
+  public adress: string
+  public telephone: string
+  public email: string
 
   constructor(
     private _route: ActivatedRoute,
@@ -46,6 +49,17 @@ export class PsocomponentComponent implements OnInit {
 
   displayedColumns: string[] = ['position', 'name', 'nit', 'telephone'];
   dataSource = ELEMENT_DATA;
+
+  updateDataSource(){
+    //Pasarle el objeto datasource a esta funcion 
+    //no esta agregando por problemas con el scope 
+    //esta fuera del scope 
+    //o la otra es pasarselo a este metodo como parametro 
+    // no se resolver eso creo que el erro es cuestion de scope
+    ELEMENT_DATA.push({position: 8, name: this.title, nit: '123', address: this.adress,  telephone: this.telephone, email: this.email});
+    console.log("elemento agregado")
+    console.log(ELEMENT_DATA)
+  }
 
   ngOnInit() {
   }
