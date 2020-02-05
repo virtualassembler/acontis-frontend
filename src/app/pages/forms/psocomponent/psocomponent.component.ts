@@ -51,12 +51,7 @@ export class PsocomponentComponent implements OnInit {
   dataSource = ELEMENT_DATA;
 
   updateDataSource(){
-    //Pasarle el objeto datasource a esta funcion 
-    //no esta agregando por problemas con el scope 
-    //esta fuera del scope 
-    //o la otra es pasarselo a este metodo como parametro 
-    // no se resolver eso creo que el erro es cuestion de scope
-    ELEMENT_DATA.push({position: 8, name: this.title, nit: '123', address: this.adress,  telephone: this.telephone, email: this.email});
+    ELEMENT_DATA.push({position: 8, name: this.title, nit: '8002372347', address: this.adress,  telephone: this.telephone, email: this.email});
     console.log("elemento agregado")
     console.log(ELEMENT_DATA)
   }
