@@ -7,12 +7,7 @@ import {MatTable} from '@angular/material';
 let ELEMENT_DATA: PeriodicElement[] = [
   {position: 1, name: 'Juan Pablo Ortiz', nit: '1047836647', address: 'cll 22 # 25-65', telephone: '6645794', email: 'juan@gmail.com'},
   {position: 2, name: 'Ana Maria Barraza', nit: '93785548', address: 'cll 22 # 25-88', telephone: '6645700', email: 'info@gmail.com'},
-  /*
-  {position: 3, name: 'COMFENALCO', nit: '900824578', address: 'cll 22 # 25-65', telephone: '6645786', email: 'info@gmail.com'},
-  {position: 4, name: 'ARGOS', nit: '900824440', address: 'cll 22 # 25-65', telephone: '6645725', email: 'info@gmail.com'},
-  {position: 5, name: 'HOCOL', nit: '900824512', address: 'cll 22 # 25-65', telephone: '6645799', email: 'info@gmail.com'},
-  {position: 6, name: 'MEXICHEN', nit: '900635542', address: 'cll 22 # 25-65', telephone: '6439810', email: 'info@gmail.com'},
-  */
+  {position: 2, name: 'Carlos Garcia', nit: '93785577', address: 'cll 22 # 25-88', telephone: '6645700', email: 'info@gmail.com'},
 ];
 
 export interface PeriodicElement {

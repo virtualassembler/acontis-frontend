@@ -235,7 +235,7 @@ export const MENU_ITEMS: NbMenuItem[] = [
     link: '/pages/forms/layouts',
   },
   {
-    title: 'contadores',
+    title: 'Contadores',
     icon: 'grid-outline',
     link: '/pages/forms/contadores',
   },
