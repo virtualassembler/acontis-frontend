@@ -19,6 +19,10 @@ import { FormLayoutsComponent } from './form-layouts/form-layouts.component';
 import { DatepickerComponent } from './datepicker/datepicker.component';
 import { ButtonsComponent } from './buttons/buttons.component';
 import { FormsModule as ngFormsModule } from '@angular/forms';
+import { PsocomponentComponent } from './psocomponent/psocomponent.component';
+import { MatSliderModule } from '@angular/material/slider';
+import {MatTableModule} from '@angular/material/table';
+import { ContadoresComponent } from './contadores/contadores.component';
 
 @NgModule({
   imports: [
@@ -35,6 +39,8 @@ import { FormsModule as ngFormsModule } from '@angular/forms';
     NbSelectModule,
     NbIconModule,
     ngFormsModule,
+    MatSliderModule,
+    MatTableModule,
   ],
   declarations: [
     FormsComponent,
@@ -42,6 +48,8 @@ import { FormsModule as ngFormsModule } from '@angular/forms';
     FormInputsComponent,
     FormLayoutsComponent,
     DatepickerComponent,
+    PsocomponentComponent,
+    ContadoresComponent,
   ],
 })
 export class FormsModule { }

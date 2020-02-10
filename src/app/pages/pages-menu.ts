@@ -230,7 +230,17 @@ export const MENU_ITEMS: NbMenuItem[] = [
   },
   */
   {
-    title: 'Auth',
+    title: 'Empresas',
+    icon: 'grid-outline',
+    link: '/pages/forms/layouts',
+  },
+  {
+    title: 'Contadores',
+    icon: 'grid-outline',
+    link: '/pages/forms/contadores',
+  },
+  {
+    title: 'Autenticación',
     icon: 'lock-outline',
     children: [
       {
