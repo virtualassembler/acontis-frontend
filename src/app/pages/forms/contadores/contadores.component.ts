@@ -3,21 +3,9 @@ import { Router, RouterModule, ActivatedRoute, Params, PreloadAllModules } from 
 import { UserService } from '../../../@core/mock/users.service';
 import { stringify } from 'querystring';
 import {MatTable} from '@angular/material';
-
-let ELEMENT_DATA: PeriodicElement[] = [
-  {position: 1, name: 'Juan Pablo Ortiz', nit: '1047836647', address: 'cll 22 # 25-65', telephone: '6645794', email: 'juan@gmail.com'},
-  {position: 2, name: 'Ana Maria Barraza', nit: '93785548', address: 'cll 22 # 25-88', telephone: '6645700', email: 'info@gmail.com'},
-  {position: 2, name: 'Carlos Garcia', nit: '93785577', address: 'cll 22 # 25-88', telephone: '6645700', email: 'info@gmail.com'},
-];
-
-export interface PeriodicElement {
-  position: number;
-  name: string;
-  nit: string;
-  address: string;
-  telephone: string;  
-  email: string;
-}
+import { ContadoresService } from '../contadores.service';
+import { IContadores } from '../contadores';
+import { HttpClient } from '@angular/common/http';
 
 @Component({
   selector: 'ngx-contadores',
@@ -26,18 +14,22 @@ export interface PeriodicElement {
 })
 export class ContadoresComponent implements OnInit {
 
-  public title: string
-  public tableTitle: string
-  public name: string
-  public nit: string
-  public address: string
-  public telephone: string
-  public email: string
+  public title: string;
+  public tableTitle: string;
+  public name: string;
+  public nit: string;
+  public address: string;
+  public telephone: string;
+  public email: string;
+  public contadores = [];
+  postData:{}
 
   constructor(
     private _route: ActivatedRoute,
     private _router: ActivatedRoute,
-    private _user_service: UserService
+    private _user_service: UserService,
+    private _psoService: ContadoresService,
+    private http:HttpClient
     ) {
       this.title = "Registrar Usuario"
       this.tableTitle = "Contadores"
@@ -48,24 +40,23 @@ export class ContadoresComponent implements OnInit {
       this.email = ""
     }
 
+  ngOnInit() {
+    console.log("aav")
+    this._psoService.getContadores().subscribe(data => this.dataSource = data)
+  }
+
   displayedColumns: string[] = ['position', 'name', 'nit', 'telephone'];
-  dataSource = ELEMENT_DATA;
-  @ViewChild(MatTable,null) table: MatTable<any>;
+  dataSource = this.contadores;
+  @ViewChild(MatTable,null) table: MatTable<IContadores>;
 
   updateDataSource(){
-    ELEMENT_DATA.push({position: 8, name: this.name, nit: this.nit, address: this.address,  telephone: this.address, email: this.email});
-    console.log("ELEMENT_DATA")
-    console.log(ELEMENT_DATA)
-    console.log("datasource")
-    console.log(ELEMENT_DATA)
-    this.dataSource = ELEMENT_DATA;
-    console.log("")
-    console.log("")
+    this.contadores.push({id_contador: 8, name_contador: this.name, dni_contador: this.nit, address_contador: this.address,  telephone_contador: this.address, email_contador: this.email});
+    console.log(this.name)
     this.table.renderRows();
+    this.postData={"name_contador": this.name, "nit_contador": this.nit, "address_contador": this.address,  "telephone_contador": this.address, "email_contador": this.email};
+    this.http.post("http://biinyugames.com/acontis/acontis-backend/public/api/contadores",this.postData).toPromise().then((data:any) =>{
+      this._psoService.getContadores().subscribe(data => this.dataSource = data)
+    })
   }
-
-  ngOnInit() {
-  }
-
 
 }

@@ -24,6 +24,7 @@ import { MatSliderModule } from '@angular/material/slider';
 import {MatTableModule} from '@angular/material/table';
 import { ContadoresComponent } from './contadores/contadores.component';
 import { PsoService } from './pso.service';
+import { ContadoresService } from './contadores.service';
 
 @NgModule({
   imports: [
@@ -53,7 +54,8 @@ import { PsoService } from './pso.service';
     ContadoresComponent,
   ],
   providers: [
-    PsoService
+    PsoService,
+    ContadoresService
   ]
 
 })
