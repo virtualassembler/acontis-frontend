@@ -17,7 +17,7 @@ export class ContadoresComponent implements OnInit {
   public title: string;
   public tableTitle: string;
   public name: string;
-  public nit: string;
+  public dni: string;
   public address: string;
   public telephone: string;
   public email: string;
@@ -34,7 +34,7 @@ export class ContadoresComponent implements OnInit {
       this.title = "Registrar Usuario"
       this.tableTitle = "Contadores"
       this.name = ""
-      this.nit = ""
+      this.dni = ""
       this.address = ""
       this.telephone = ""
       this.email = ""
@@ -50,10 +50,10 @@ export class ContadoresComponent implements OnInit {
   @ViewChild(MatTable,null) table: MatTable<IContadores>;
 
   updateDataSource(){
-    this.contadores.push({id_contador: 8, name_contador: this.name, dni_contador: this.nit, address_contador: this.address,  telephone_contador: this.address, email_contador: this.email});
+    this.contadores.push({id_contador: 8, name_contador: this.name, dni_contador: this.dni, address_contador: this.address,  telephone_contador: this.address, email_contador: this.email});
     console.log(this.name)
     this.table.renderRows();
-    this.postData={"name_contador": this.name, "nit_contador": this.nit, "address_contador": this.address,  "telephone_contador": this.address, "email_contador": this.email};
+    this.postData={"name_contador": this.name, "dni_contador": this.dni, "address_contador": this.address,  "telephone_contador": this.address, "email_contador": this.email};
     this.http.post("http://biinyugames.com/acontis/acontis-backend/public/api/contadores",this.postData).toPromise().then((data:any) =>{
       this._psoService.getContadores().subscribe(data => this.dataSource = data)
     })
