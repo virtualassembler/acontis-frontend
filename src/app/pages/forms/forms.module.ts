@@ -23,6 +23,7 @@ import { PsocomponentComponent } from './psocomponent/psocomponent.component';
 import { MatSliderModule } from '@angular/material/slider';
 import {MatTableModule} from '@angular/material/table';
 import { ContadoresComponent } from './contadores/contadores.component';
+import { PsoService } from './pso.service';
 
 @NgModule({
   imports: [
@@ -51,5 +52,9 @@ import { ContadoresComponent } from './contadores/contadores.component';
     PsocomponentComponent,
     ContadoresComponent,
   ],
+  providers: [
+    PsoService
+  ]
+
 })
 export class FormsModule { }
