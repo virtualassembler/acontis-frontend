@@ -1,4 +1,11 @@
-
+<div class="row">
+  <div class="col-md-8"> 
+    <h2>Empresas emp</h2>
+    <ul *ngFor="let t of pso">
+      <li>{{t.name_company}}</li>
+    </ul>
+  </div>
+</div>
 <div class="row">
   <div class="col-md-8"> 
     <div class="mat-elevation-z8">
@@ -64,6 +71,9 @@
               <!--
                 <button type="submit" nbButton status="primary">Submit</button>
               -->  
+              <ul *ngFor="let t of pso">
+                <li>{{t.name_company}}</li>
+              </ul>
               <button (click)="updateDataSource()" nbButton status="primary">Submit</button>
           </div>
         </form>

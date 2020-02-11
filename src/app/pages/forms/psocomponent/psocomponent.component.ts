@@ -3,6 +3,7 @@ import { Router, RouterModule, ActivatedRoute, Params, PreloadAllModules } from 
 import { UserService } from '../../../@core/mock/users.service';
 import { stringify } from 'querystring';
 import {MatTable} from '@angular/material';
+import { PsoService } from '../pso.service';
 
 let ELEMENT_DATA: PeriodicElement[] = [
   {position: 1, name: 'HUDC', nit: '900824578', address: 'cll 22 # 25-65', telephone: '6645711', email: 'info@gmail.com'},
@@ -40,11 +41,13 @@ export class PsocomponentComponent implements OnInit {
   public address: string
   public telephone: string
   public email: string
+  public pso = [];
 
   constructor(
     private _route: ActivatedRoute,
     private _router: ActivatedRoute,
-    private _user_service: UserService
+    private _user_service: UserService,
+    private _psoService: PsoService
     ) {
       this.title = "Nueva empresa"
       this.tableTitle = "Empresas"
@@ -72,6 +75,10 @@ export class PsocomponentComponent implements OnInit {
   }
 
   ngOnInit() {
+    console.log("aag")
+    console.log(JSON.stringify(this._psoService.getleagues()))
+    
+    this._psoService.getleagues().subscribe(data => this.pso = data)
   }
 
 }
