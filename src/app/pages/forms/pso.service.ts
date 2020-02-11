@@ -8,7 +8,7 @@ import { Observable } from 'rxjs/Observable';
 })
 export class PsoService {
 
-  private _url :string = "http://localhost/acontis-backend/public/api/companies";
+  private _url :string = "http://biinyugames.com/acontis/acontis-backend/public/api/companies";
 
   constructor(private http: HttpClient) { }
   

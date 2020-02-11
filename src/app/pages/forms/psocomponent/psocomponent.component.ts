@@ -79,11 +79,12 @@ export class PsocomponentComponent implements OnInit {
     //this.dataSource = this.pso;
     this.table.renderRows();
     this.postData={"name_company": this.name, "nit_company": this.nit, "address_company": this.address,  "telephone_company": this.address, "email_company": this.email};
-    this.http.post("http://localhost/acontis-backend/public/api/companies",this.postData).toPromise().then((data:any) =>{
+    this.http.post("http://biinyugames.com/acontis/acontis-backend/public/api/companies",this.postData).toPromise().then((data:any) =>{
       console.log(data);
       console.log(data);
       console.log(data);
-
+      //this.updateDataSource();
+      this._psoService.getleagues().subscribe(data => this.dataSource = data)
     })
   }
 
