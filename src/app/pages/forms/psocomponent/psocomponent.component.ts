@@ -4,17 +4,14 @@ import { UserService } from '../../../@core/mock/users.service';
 import { stringify } from 'querystring';
 import {MatTable} from '@angular/material';
 import { PsoService } from '../pso.service';
+import { IPso } from '../pso';
 
+/*
 let ELEMENT_DATA: PeriodicElement[] = [
   {position: 1, name: 'HUDC', nit: '900824578', address: 'cll 22 # 25-65', telephone: '6645711', email: 'info@gmail.com'},
   {position: 2, name: 'UNISINU', nit: '900824578', address: 'cll 22 # 25-65', telephone: '6645700', email: 'info@gmail.com'},
-  /*
-  {position: 3, name: 'COMFENALCO', nit: '900824578', address: 'cll 22 # 25-65', telephone: '6645786', email: 'info@gmail.com'},
-  {position: 4, name: 'ARGOS', nit: '900824440', address: 'cll 22 # 25-65', telephone: '6645725', email: 'info@gmail.com'},
-  {position: 5, name: 'HOCOL', nit: '900824512', address: 'cll 22 # 25-65', telephone: '6645799', email: 'info@gmail.com'},
-  {position: 6, name: 'MEXICHEN', nit: '900635542', address: 'cll 22 # 25-65', telephone: '6439810', email: 'info@gmail.com'},
-  */
 ];
+
 
 export interface PeriodicElement {
   position: number;
@@ -24,12 +21,12 @@ export interface PeriodicElement {
   telephone: string;  
   email: string;
 }
+*/
 
 @Component({
   selector: 'ngx-psocomponent',
   templateUrl: './psocomponent.component.html',
   styleUrls: ['./psocomponent.component.scss'],
-  //providers: [UserService],
 })
 
 export class PsocomponentComponent implements OnInit {
@@ -58,27 +55,28 @@ export class PsocomponentComponent implements OnInit {
       this.email = ""
     }
 
+  ngOnInit() {
+    console.log("aag")
+    //console.log(JSON.stringify(this._psoService.getleagues()))
+    this._psoService.getleagues().subscribe(data => this.dataSource = data)
+  }
+
   displayedColumns: string[] = ['position', 'name', 'nit', 'telephone'];
-  dataSource = ELEMENT_DATA;
-  @ViewChild(MatTable,null) table: MatTable<any>;
+  //dataSource = ELEMENT_DATA;
+  dataSource = this.pso;
+  @ViewChild(MatTable,null) table: MatTable<IPso>;
 
   updateDataSource(){
-    ELEMENT_DATA.push({position: 8, name: this.name, nit: this.nit, address: this.address,  telephone: this.address, email: this.email});
-    console.log("ELEMENT_DATA")
-    console.log(ELEMENT_DATA)
-    console.log("datasource")
-    console.log(ELEMENT_DATA)
-    this.dataSource = ELEMENT_DATA;
-    console.log("")
-    console.log("")
+    //ELEMENT_DATA.push({position: 8, name: this.name, nit: this.nit, address: this.address,  telephone: this.address, email: this.email});
+    //this.dataSource = ELEMENT_DATA;
+    //this.pso.push({position: 8, name: this.name, nit: this.nit, address: this.address,  telephone: this.address, email: this.email});
+    //this.pso.push({id_company: 8, name_company: this.name, nit_company: this.nit, address_company: this.address,  telephone_company: this.address, email_company: this.email});
+    
+    this.pso.push({id_company: 8, name_company: this.name, nit_company: this.nit, address_company: this.address,  telephone_company: this.address, email_company: this.email});
+    this.dataSource = this.pso;
     this.table.renderRows();
   }
 
-  ngOnInit() {
-    console.log("aag")
-    console.log(JSON.stringify(this._psoService.getleagues()))
-    
-    this._psoService.getleagues().subscribe(data => this.pso = data)
-  }
+  
 
 }
