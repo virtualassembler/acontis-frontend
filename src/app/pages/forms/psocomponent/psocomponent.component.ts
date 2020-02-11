@@ -82,6 +82,7 @@ export class PsocomponentComponent implements OnInit {
     this.http.post("http://localhost/acontis-backend/public/api/companies",this.postData).toPromise().then((data:any) =>{
       console.log(data);
       console.log(data);
+      console.log(data);
 
     })
   }
