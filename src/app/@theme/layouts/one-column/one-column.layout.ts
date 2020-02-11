@@ -9,8 +9,9 @@ import { Component } from '@angular/core';
         <ngx-header></ngx-header>
       </nb-layout-header>
 
-      <nb-sidebar class="menu-sidebar" tag="menu-sidebar" responsive>
-        <ng-content select="nb-menu"></ng-content>
+      <nb-sidebar class="menu-sidebar" style="background-image: url('assets/images/sidebar.jpg');background-color: rgba(0, 147, 146, 1);" tag="menu-sidebar" responsive>
+        <ng-content style="color:#FAFAFA;" select="nb-menu"></ng-content>
+        <img style="width:170px;margin-top:480px;" src="assets/images/logo.png"/>
       </nb-sidebar>
 
       <nb-layout-column>
