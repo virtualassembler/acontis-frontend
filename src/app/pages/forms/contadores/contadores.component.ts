@@ -50,18 +50,20 @@ export class ContadoresComponent implements OnInit {
   @ViewChild(MatTable,null) table: MatTable<IContadores>;
 
   updateDataSource(){
-    this.contadores.push({id_contador: 8, name_contador: this.name, dni_contador: this.dni, address_contador: this.address,  telephone_contador: this.telephone, email_contador: this.email});
-    console.log(this.name)
-    this.table.renderRows();
-    this.postData={"name_contador": this.name, "dni_contador": this.dni, "address_contador": this.address,  "telephone_contador": this.telephone, "email_contador": this.email};
-    this.http.post("http://biinyugames.com/acontis/acontis-backend/public/api/contadores",this.postData).toPromise().then((data:any) =>{
-      this._psoService.getContadores().subscribe(data => this.dataSource = data)
-    })
-    this.name = ""
-    this.dni = ""
-    this.address = ""
-    this.telephone = ""
-    this.email = ""
+    if(this.name != "" && this.dni != "" && this.address != "" && this.telephone != "" && this.email != ""){
+      this.contadores.push({id_contador: 8, name_contador: this.name, dni_contador: this.dni, address_contador: this.address,  telephone_contador: this.telephone, email_contador: this.email});
+      console.log(this.name)
+      this.table.renderRows();
+      this.postData={"name_contador": this.name, "dni_contador": this.dni, "address_contador": this.address,  "telephone_contador": this.telephone, "email_contador": this.email};
+      this.http.post("http://biinyugames.com/acontis/acontis-backend/public/api/contadores",this.postData).toPromise().then((data:any) =>{
+        this._psoService.getContadores().subscribe(data => this.dataSource = data)
+      })
+      this.name = ""
+      this.dni = ""
+      this.address = ""
+      this.telephone = ""
+      this.email = ""
+    }
   }
 
 }

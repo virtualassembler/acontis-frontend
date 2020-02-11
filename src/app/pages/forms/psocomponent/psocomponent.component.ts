@@ -51,13 +51,20 @@ export class PsocomponentComponent implements OnInit {
   @ViewChild(MatTable,null) table: MatTable<IPso>;
 
   updateDataSource(){
-    this.pso.push({id_company: 8, name_company: this.name, nit_company: this.nit, address_company: this.address,  telephone_company: this.address, email_company: this.email});
-    console.log(this.name)
-    this.table.renderRows();
-    this.postData={"name_company": this.name, "nit_company": this.nit, "address_company": this.address,  "telephone_company": this.address, "email_company": this.email};
-    this.http.post("http://biinyugames.com/acontis/acontis-backend/public/api/companies",this.postData).toPromise().then((data:any) =>{
-      this._psoService.getleagues().subscribe(data => this.dataSource = data)
-    })
+    if(this.name != "" && this.nit != "" && this.address != "" && this.telephone != "" && this.email != ""){
+      this.pso.push({id_company: 8, name_company: this.name, nit_company: this.nit, address_company: this.address,  telephone_company: this.telephone, email_company: this.email});
+      console.log(this.name)
+      this.table.renderRows();
+      this.postData={"name_company": this.name, "nit_company": this.nit, "address_company": this.address,  "telephone_company": this.telephone, "email_company": this.email};
+      this.http.post("http://biinyugames.com/acontis/acontis-backend/public/api/companies",this.postData).toPromise().then((data:any) =>{
+        this._psoService.getleagues().subscribe(data => this.dataSource = data)
+      })
+      this.name = ""
+      this.nit = ""
+      this.address = ""
+      this.telephone = ""
+      this.email = ""
+    }
   }
   
 }
